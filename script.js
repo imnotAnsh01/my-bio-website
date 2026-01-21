@@ -1,13 +1,19 @@
-let isOpen = false;
+const menu = document.getElementById("menu");
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+const overlay = document.getElementById("overlay");
 
-function toggleMenu(){
-    let menu = document.getElementById("menu");
+menuBtn.addEventListener("click", () => {
+    menu.style.right = "0px";
+    overlay.style.opacity = "1";
+    overlay.style.visibility = "visible";
+});
 
-    if(isOpen){
-        menu.style.right = "-280px";
-        isOpen = false;
-    }else{
-        menu.style.right = "0px";
-        isOpen = true;
-    }
+closeBtn.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
+
+function closeMenu(){
+    menu.style.right = "-280px";
+    overlay.style.opacity = "0";
+    overlay.style.visibility = "hidden";
 }

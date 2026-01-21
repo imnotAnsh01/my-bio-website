@@ -75,7 +75,7 @@ header{
     background:rgba(0,0,0,0.5);
     opacity:0;
     visibility:hidden;
-    transition:0.3s;
+    transition: right 0.18s ease-out;
     z-index:5;
     pointer-events:none;
 }

@@ -7,6 +7,7 @@ menuBtn.addEventListener("click", () => {
     menu.style.right = "0px";
     overlay.style.opacity = "1";
     overlay.style.visibility = "visible";
+    overlay.style.pointerEvents = "auto";
 });
 
 closeBtn.addEventListener("click", closeMenu);

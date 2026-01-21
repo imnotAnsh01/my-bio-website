@@ -147,3 +147,26 @@ header{
         transform:translateY(0);
     }
 }
+
+.resume-box{
+    text-align:center;
+}
+
+.resume-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 26px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    color:white;
+    font-size:15px;
+    font-weight:500;
+    text-decoration:none;
+    box-shadow:0 8px 25px rgba(0,0,0,0.35);
+    transition:0.25s ease;
+}
+
+.resume-btn:hover{
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:0 12px 30px rgba(0,0,0,0.45);
+    }

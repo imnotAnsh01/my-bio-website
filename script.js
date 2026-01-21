@@ -5,15 +5,12 @@ document.addEventListener("DOMContentLoaded", function(){
     const closeBtn = document.getElementById("closeBtn");
     const overlay = document.getElementById("overlay");
 
-    menuBtn.addEventListener("click", function(){
+    menuBtn.onclick = function(){
         menu.style.right = "0px";
         overlay.style.opacity = "1";
         overlay.style.visibility = "visible";
         overlay.style.pointerEvents = "auto";
-    });
-
-    closeBtn.addEventListener("click", closeMenu);
-    overlay.addEventListener("click", closeMenu);
+    };
 
     function closeMenu(){
         menu.style.right = "-280px";
@@ -21,5 +18,8 @@ document.addEventListener("DOMContentLoaded", function(){
         overlay.style.visibility = "hidden";
         overlay.style.pointerEvents = "none";
     }
+
+    closeBtn.onclick = closeMenu;
+    overlay.onclick = closeMenu;
 
 });

@@ -159,6 +159,7 @@ header{
     visibility:hidden;
     transition:0.3s;
     z-index:5;
+    pointer-events:none;
 }
 
 /* MENU Z-INDEX */

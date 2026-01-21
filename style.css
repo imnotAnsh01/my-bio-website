@@ -83,6 +83,8 @@ header{
 /* CONTENT */
 .content{
     padding:30px;
+    position:relative;
+    z-index:1;
 }
 
 .box{

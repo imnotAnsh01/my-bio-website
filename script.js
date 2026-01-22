@@ -1,84 +1,63 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    const menuBtn = document.getElementById("menuBtn");
-    const menu = document.getElementById("menu");
-    const closeBtn = document.getElementById("closeBtn");
+const menu=document.getElementById("menu");
+const projectMenu=document.getElementById("projectMenu");
+const projectDetail=document.getElementById("projectDetail");
+const overlay=document.getElementById("overlay");
 
-    const projectBtn = document.getElementById("projectBtn");
-    const projectMenu = document.getElementById("projectMenu");
-    const closeProject = document.getElementById("closeProject");
+function openPanel(panel){
+    menu.classList.remove("active");
+    projectMenu.classList.remove("active");
+    projectDetail.classList.remove("active");
+    panel.classList.add("active");
+    overlay.style.opacity="1";
+    overlay.style.visibility="visible";
+    document.body.style.overflow="hidden";
+}
 
-    const overlay = document.getElementById("overlay");
+function closeAll(){
+    menu.classList.remove("active");
+    projectMenu.classList.remove("active");
+    projectDetail.classList.remove("active");
+    overlay.style.opacity="0";
+    overlay.style.visibility="hidden";
+    document.body.style.overflow="";
+}
 
-    function showOverlay() {
-    overlay.style.opacity = "1";
-    overlay.style.visibility = "visible";
-    overlay.style.pointerEvents = "auto";
-    document.body.classList.add("menu-open");
-        
+document.getElementById("menuBtn").onclick=()=>openPanel(menu);
+document.getElementById("projectBtn").onclick=()=>openPanel(projectMenu);
+document.getElementById("closeMenu").onclick=closeAll;
+document.getElementById("closeProject").onclick=closeAll;
+document.getElementById("closeDetail").onclick=closeAll;
+overlay.onclick=closeAll;
+
+/* PROJECT DETAIL */
+document.getElementById("bioProject").onclick=()=>{
+    projectMenu.classList.remove("active");
+    projectDetail.classList.add("active");
+};
+
+/* TYPING */
+const typing=document.getElementById("typing");
+const text="Avanish Pal";
+let i=0;
+(function type(){
+    if(i<text.length){
+        typing.textContent+=text[i++];
+        setTimeout(type,120);
     }
+})();
 
-    function hideOverlay() {
-    overlay.style.opacity = "0";
-    overlay.style.visibility = "hidden";
-    overlay.style.pointerEvents = "none";
-    document.body.classList.remove("menu-open");
-    }
-    function closeAllMenus() {
-        menu.style.right = "-280px";
-        projectMenu.style.right = "-300px";
-        hideOverlay();
-    }
+/* THEME */
+const toggle=document.getElementById("themeToggle");
+if(localStorage.theme==="light"){
+    document.body.classList.add("light");
+    toggle.textContent="☀️";
+}
+toggle.onclick=()=>{
+    document.body.classList.toggle("light");
+    localStorage.theme=document.body.classList.contains("light")?"light":"dark";
+    toggle.textContent=document.body.classList.contains("light")?"☀️":"🌙";
+};
 
-    // MAIN MENU
-    menuBtn.onclick = () => {
-        closeAllMenus();
-        menu.style.right = "0";
-        showOverlay();
-    };
-
-    closeBtn.onclick = closeAllMenus;
-
-    // PROJECT MENU
-    projectBtn.onclick = () => {
-        closeAllMenus();
-        projectMenu.style.right = "0";
-        showOverlay();
-    };
-
-    closeProject.onclick = closeAllMenus;
-
-    overlay.onclick = closeAllMenus;
-
-    // TYPING ANIMATION
-    const typing = document.getElementById("typing");
-    if (typing) {
-        const text = "Avanish Pal";
-        let i = 0;
-        function typeEffect() {
-            if (i < text.length) {
-                typing.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeEffect, 120);
-            }
-        }
-        typeEffect();
-    }
-
-    // THEME TOGGLE
-    const toggleBtn = document.getElementById("themeToggle");
-    if (localStorage.getItem("theme") === "light") {
-        document.body.classList.add("light");
-        toggleBtn.textContent = "☀️";
-    }
-
-    toggleBtn.onclick = () => {
-        document.body.classList.toggle("light");
-        toggleBtn.textContent =
-            document.body.classList.contains("light") ? "☀️" : "🌙";
-        localStorage.setItem(
-            "theme",
-            document.body.classList.contains("light") ? "light" : "dark"
-        );
-    };
 });

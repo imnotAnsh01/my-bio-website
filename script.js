@@ -22,4 +22,17 @@ document.addEventListener("DOMContentLoaded", function(){
     closeBtn.onclick = closeMenu;
     overlay.onclick = closeMenu;
 
-});
+}
+// Typing Animation
+const text = "Avanish Pal";
+let index = 0;
+const speed = 120;
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, speed);
+    }
+}
+typeEffect(););

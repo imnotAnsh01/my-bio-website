@@ -21,12 +21,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     closeBtn.onclick=closeMenu;
     overlay.onclick=closeMenu;
 
-    // THEME
-    themeBtn.onclick=()=>{
-        document.body.classList.toggle("light");
-        themeBtn.textContent=
-            document.body.classList.contains("light")?"🌞":"🌙";
-    };
+    // THEME TOGGLE + REMEMBER
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme === "light"){
+    document.body.classList.add("light");
+    themeBtn.textContent = "🌞";
+}
+
+themeBtn.onclick = () => {
+    document.body.classList.toggle("light");
+
+    if(document.body.classList.contains("light")){
+        localStorage.setItem("theme","light");
+        themeBtn.textContent = "🌞";
+    }else{
+        localStorage.setItem("theme","dark");
+        themeBtn.textContent = "🌙";
+    }
+};
 
     // TYPING
     const text="Avanish Pal";

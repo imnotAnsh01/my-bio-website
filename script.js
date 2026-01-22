@@ -4,42 +4,56 @@ document.addEventListener("DOMContentLoaded",()=>{
     const menuBtn=document.getElementById("menuBtn");
     const closeBtn=document.getElementById("closeBtn");
     const overlay=document.getElementById("overlay");
+
+    const projectPanel=document.getElementById("projectPanel");
+    const openProject=document.getElementById("openProject");
+    const closeProject=document.getElementById("closeProject");
+
     const themeBtn=document.getElementById("themeToggle");
 
+    // MENU
     menuBtn.onclick=()=>{
         menu.style.right="0";
         overlay.style.opacity="1";
         overlay.style.visibility="visible";
     };
 
-    function closeMenu(){
+    function closeAll(){
         menu.style.right="-260px";
+        projectPanel.style.right="-320px";
         overlay.style.opacity="0";
         overlay.style.visibility="hidden";
     }
 
-    closeBtn.onclick=closeMenu;
-    overlay.onclick=closeMenu;
+    closeBtn.onclick=closeAll;
+    overlay.onclick=closeAll;
 
-    // THEME TOGGLE + REMEMBER
-const savedTheme = localStorage.getItem("theme");
+    // PROJECT PANEL
+    openProject.onclick=()=>{
+        projectPanel.style.right="0";
+        overlay.style.opacity="1";
+        overlay.style.visibility="visible";
+    };
 
-if(savedTheme === "light"){
-    document.body.classList.add("light");
-    themeBtn.textContent = "🌞";
-}
+    closeProject.onclick=closeAll;
 
-themeBtn.onclick = () => {
-    document.body.classList.toggle("light");
-
-    if(document.body.classList.contains("light")){
-        localStorage.setItem("theme","light");
-        themeBtn.textContent = "🌞";
-    }else{
-        localStorage.setItem("theme","dark");
-        themeBtn.textContent = "🌙";
+    // THEME (remember)
+    const savedTheme=localStorage.getItem("theme");
+    if(savedTheme==="light"){
+        document.body.classList.add("light");
+        themeBtn.textContent="🌞";
     }
-};
+
+    themeBtn.onclick=()=>{
+        document.body.classList.toggle("light");
+        if(document.body.classList.contains("light")){
+            localStorage.setItem("theme","light");
+            themeBtn.textContent="🌞";
+        }else{
+            localStorage.setItem("theme","dark");
+            themeBtn.textContent="🌙";
+        }
+    };
 
     // TYPING
     const text="Avanish Pal";

@@ -1,29 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Poppins,sans-serif;
-    -webkit-tap-highlight-color:transparent;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
     background:linear-gradient(135deg,#1f1c2c,#928dab);
-    color:white;
     min-height:100vh;
+    color:white;
 }
 
 /* HEADER */
 header{
     position:sticky;
     top:0;
-    z-index:10;
+    z-index:20;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:14px 20px;
-    background:#161625;
+    padding:14px 22px;
+    background:rgba(20,20,30,0.85);
+    backdrop-filter:blur(12px);
 }
 
 .profile{
@@ -33,40 +33,45 @@ header{
 }
 
 .profile img{
-    width:42px;
-    height:42px;
+    width:45px;
+    height:45px;
     border-radius:50%;
 }
 
 .header-actions{
     display:flex;
+    align-items:center;
     gap:12px;
 }
 
-.menu-btn,.theme-btn{
-    background:none;
+.menu-btn{
+    font-size:22px;
+    cursor:pointer;
+}
+
+.theme-btn{
     border:none;
-    color:white;
+    background:none;
     font-size:20px;
     cursor:pointer;
+    color:white;
 }
 
 /* SIDE MENU */
 .side-menu{
     position:fixed;
     top:0;
-    right:-100%;
-    width:65%;
-    max-width:260px;
+    right:-260px;
+    width:260px;
     height:100%;
     background:#111;
-    padding:22px;
-    transition:right .25s ease;
-    z-index:20;
+    padding:20px;
+    transition:0.25s ease;
+    z-index:30;
 }
 
 .close-btn{
-    font-size:28px;
+    font-size:26px;
     cursor:pointer;
 }
 
@@ -74,20 +79,22 @@ header{
 .overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.45);
+    background:rgba(0,0,0,0.5);
     opacity:0;
     visibility:hidden;
-    transition:.2s;
-    z-index:15;
+    transition:0.2s;
+    z-index:25;
 }
 
 /* CONTENT */
 .content{
-    padding:25px;
+    max-width:900px;
+    margin:auto;
+    padding:30px 16px;
 }
 
 .box{
-    background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.14);
     padding:20px;
     border-radius:14px;
     margin-bottom:18px;
@@ -97,115 +104,72 @@ header{
     border-left:4px solid #00c6ff;
 }
 
+.box h1{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
 /* SKILLS */
-.skill{ margin-bottom:12px; }
+.skill{
+    margin:12px 0;
+}
+
 .bar{
-    background:rgba(255,255,255,.25);
+    background:rgba(255,255,255,0.3);
+    height:8px;
     border-radius:20px;
 }
+
 .fill{
     height:8px;
     border-radius:20px;
 }
-.html{width:70%;background:#ff6a00;}
-.css{width:65%;background:#00c6ff;}
-.js{width:40%;background:#f7df1e;}
 
-/* RESUME */
-.resume{
-    text-align:center;
+.fill.html{width:70%;background:#ff6a00;}
+.fill.css{width:65%;background:#00c6ff;}
+.fill.js{width:40%;background:#f7df1e;}
+
+/* TWO COLUMN */
+.two-column{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
 }
-.resume-btn{
-    display:inline-block;
-    padding:12px 26px;
-    background:#00c6ff;
-    color:white;
-    border-radius:30px;
-    text-decoration:none;
+
+@media (min-width:700px){
+    .two-column{
+        grid-template-columns:1.2fr 0.8fr;
+    }
 }
 
 /* SOCIAL */
 .social{
     display:flex;
-    gap:15px;
+    gap:12px;
+    margin-top:10px;
 }
+
 .social a{
-    padding:10px 20px;
-    border-radius:25px;
-    text-decoration:none;
+    padding:10px 18px;
+    border-radius:20px;
     color:white;
+    text-decoration:none;
+    font-size:14px;
 }
+
 .insta{background:#e1306c;}
 .fb{background:#1877f2;}
 
-/* =====================
-   LIGHT THEME
-===================== */
-
-body.light{
-    background: linear-gradient(135deg,#f2f2f2,#d9d9d9);
-    color:#111;
+.resume-box{
+    text-align:center;
 }
 
-body.light header{
-    background:#ffffff;
-    color:#111;
-}
-
-body.light .menu-btn,
-body.light .theme-btn{
-    color:#111;
-}
-
-body.light .box{
-    background: rgba(0,0,0,0.06);
-}
-
-body.light .highlight{
-    border-left-color:#007bff;
-}
-
-body.light .side-menu{
-    background:#ffffff;
-    color:#111;
-}
-
-body.light .overlay{
-    background: rgba(0,0,0,0.3);
-}
-
-body.light .resume-btn{
-    background:#007bff;
+.resume-btn{
+    display:inline-block;
+    margin-top:8px;
+    padding:12px 26px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
     color:white;
-}
-
-body.light .insta{
-    background:#e1306c;
-}
-
-body.light .fb{
-    background:#1877f2;
-    }
-
-/* =========================
-   2-COLUMN PC LAYOUT
-========================= */
-
-.two-column{
-    display:block;
-}
-
-@media (min-width: 768px){
-
-    .two-column{
-        display:grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 25px;
-        margin-bottom: 20px;
-    }
-
-    .left-col .box,
-    .right-col .box{
-        margin-bottom: 0;
-    }
+    text-decoration:none;
 }

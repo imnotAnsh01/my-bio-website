@@ -298,3 +298,9 @@ header,
 .project-nav li:hover{
     background:rgba(255,255,255,0.25);
 }
+
+/* PROJECT MENU WIDTH */
+#projectMenu{
+    width:300px;
+    right:-300px;
+    }

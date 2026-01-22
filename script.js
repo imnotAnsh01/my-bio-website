@@ -62,3 +62,21 @@ toggleBtn.addEventListener("click", () => {
         localStorage.setItem("theme", "dark");
     }
 });
+
+const projectBtn = document.getElementById("projectBtn");
+const projectMenu = document.getElementById("projectMenu");
+const closeProject = document.getElementById("closeProject");
+
+projectBtn.onclick = () => {
+    projectMenu.style.right = "0";
+    overlay.style.opacity = "1";
+    overlay.style.visibility = "visible";
+    overlay.style.pointerEvents = "auto";
+};
+
+closeProject.onclick = () => {
+    projectMenu.style.right = "-300px";
+    overlay.style.opacity = "0";
+    overlay.style.visibility = "hidden";
+    overlay.style.pointerEvents = "none";
+};

@@ -273,3 +273,28 @@ header,
     border-left: 4px solid #00c6ff;
     box-shadow: 0 12px 35px rgba(0,0,0,0.35);
 }
+
+/* PROJECT MENU */
+#projectMenu{
+    right:-300px;
+    width:300px;
+}
+
+.project-nav{
+    list-style:none;
+    padding-left:0;
+    margin-top:20px;
+}
+
+.project-nav li{
+    padding:12px;
+    margin-bottom:10px;
+    background:rgba(255,255,255,0.12);
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.project-nav li:hover{
+    background:rgba(255,255,255,0.25);
+}

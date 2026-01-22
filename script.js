@@ -11,17 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const overlay = document.getElementById("overlay");
 
     function showOverlay() {
-        overlay.style.opacity = "1";
-        overlay.style.visibility = "visible";
-        overlay.style.pointerEvents = "auto";
+    overlay.style.opacity = "1";
+    overlay.style.visibility = "visible";
+    overlay.style.pointerEvents = "auto";
+    document.body.classList.add("menu-open");
+        
     }
 
     function hideOverlay() {
-        overlay.style.opacity = "0";
-        overlay.style.visibility = "hidden";
-        overlay.style.pointerEvents = "none";
+    overlay.style.opacity = "0";
+    overlay.style.visibility = "hidden";
+    overlay.style.pointerEvents = "none";
+    document.body.classList.remove("menu-open");
     }
-
     function closeAllMenus() {
         menu.style.right = "-280px";
         projectMenu.style.right = "-300px";

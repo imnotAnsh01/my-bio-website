@@ -1,43 +1,26 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
 const menu=document.getElementById("menu");
-const projectMenu=document.getElementById("projectMenu");
-const projectDetail=document.getElementById("projectDetail");
 const overlay=document.getElementById("overlay");
 
-function openPanel(panel){
-    menu.classList.remove("active");
-    projectMenu.classList.remove("active");
-    projectDetail.classList.remove("active");
-    panel.classList.add("active");
+document.getElementById("menuBtn").onclick=()=>{
+    menu.style.right="0";
     overlay.style.opacity="1";
     overlay.style.visibility="visible";
     document.body.style.overflow="hidden";
-}
+};
 
-function closeAll(){
-    menu.classList.remove("active");
-    projectMenu.classList.remove("active");
-    projectDetail.classList.remove("active");
+document.getElementById("closeMenu").onclick=closeMenu;
+overlay.onclick=closeMenu;
+
+function closeMenu(){
+    menu.style.right="-100%";
     overlay.style.opacity="0";
     overlay.style.visibility="hidden";
     document.body.style.overflow="";
 }
 
-document.getElementById("menuBtn").onclick=()=>openPanel(menu);
-document.getElementById("projectBtn").onclick=()=>openPanel(projectMenu);
-document.getElementById("closeMenu").onclick=closeAll;
-document.getElementById("closeProject").onclick=closeAll;
-document.getElementById("closeDetail").onclick=closeAll;
-overlay.onclick=closeAll;
-
-/* PROJECT DETAIL */
-document.getElementById("bioProject").onclick=()=>{
-    projectMenu.classList.remove("active");
-    projectDetail.classList.add("active");
-};
-
-/* TYPING */
+/* Typing */
 const typing=document.getElementById("typing");
 const text="Avanish Pal";
 let i=0;
@@ -48,7 +31,7 @@ let i=0;
     }
 })();
 
-/* THEME */
+/* Theme toggle */
 const toggle=document.getElementById("themeToggle");
 if(localStorage.theme==="light"){
     document.body.classList.add("light");

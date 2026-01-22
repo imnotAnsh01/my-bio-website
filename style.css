@@ -15,6 +15,9 @@ body{
 
 /* HEADER */
 header{
+    position:sticky;
+    top:0;
+    z-index:20;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -229,3 +232,24 @@ body.light .side-menu{
 body.light .social a{
     color:white;
     }
+
+/* SMOOTH THEME TRANSITION */
+body,
+header,
+.box,
+.side-menu {
+    transition: background 0.35s ease, color 0.35s ease;
+}
+
+/* TOGGLE BUTTON ANIMATION */
+.theme-btn {
+    transition: transform 0.3s ease;
+}
+
+.theme-btn:active {
+    transform: rotate(180deg) scale(1.2);
+}
+
+.box ul li{
+    margin-bottom:6px;
+}

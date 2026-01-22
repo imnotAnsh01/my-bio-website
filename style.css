@@ -195,3 +195,37 @@ header{
 .fill.html{ width:70%; background:#ff6a00; }
 .fill.css{ width:65%; background:#00c6ff; }
 .fill.js{ width:40%; background:#f7df1e; }
+
+/* THEME BUTTON */
+.theme-btn{
+    background:transparent;
+    border:none;
+    font-size:22px;
+    cursor:pointer;
+    color:white;
+    margin-right:12px;
+}
+
+/* LIGHT MODE */
+body.light{
+    background:#f4f6fb;
+    color:#111;
+}
+
+body.light header{
+    background:#ffffffcc;
+}
+
+body.light .box{
+    background:#ffffff;
+    color:#111;
+}
+
+body.light .side-menu{
+    background:#fff;
+    color:#111;
+}
+
+body.light .social a{
+    color:white;
+    }

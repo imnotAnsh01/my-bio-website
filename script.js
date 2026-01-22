@@ -1,46 +1,44 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
-const menu=document.getElementById("menu");
-const overlay=document.getElementById("overlay");
+    const menu=document.getElementById("menu");
+    const menuBtn=document.getElementById("menuBtn");
+    const closeBtn=document.getElementById("closeBtn");
+    const overlay=document.getElementById("overlay");
+    const themeBtn=document.getElementById("themeToggle");
 
-document.getElementById("menuBtn").onclick=()=>{
-    menu.style.right="0";
-    overlay.style.opacity="1";
-    overlay.style.visibility="visible";
-    document.body.style.overflow="hidden";
-};
+    menuBtn.onclick=()=>{
+        menu.style.right="0";
+        overlay.style.opacity="1";
+        overlay.style.visibility="visible";
+    };
 
-document.getElementById("closeMenu").onclick=closeMenu;
-overlay.onclick=closeMenu;
-
-function closeMenu(){
-    menu.style.right="-100%";
-    overlay.style.opacity="0";
-    overlay.style.visibility="hidden";
-    document.body.style.overflow="";
-}
-
-/* Typing */
-const typing=document.getElementById("typing");
-const text="Avanish Pal";
-let i=0;
-(function type(){
-    if(i<text.length){
-        typing.textContent+=text[i++];
-        setTimeout(type,120);
+    function closeMenu(){
+        menu.style.right="-260px";
+        overlay.style.opacity="0";
+        overlay.style.visibility="hidden";
     }
-})();
 
-/* Theme toggle */
-const toggle=document.getElementById("themeToggle");
-if(localStorage.theme==="light"){
-    document.body.classList.add("light");
-    toggle.textContent="☀️";
-}
-toggle.onclick=()=>{
-    document.body.classList.toggle("light");
-    localStorage.theme=document.body.classList.contains("light")?"light":"dark";
-    toggle.textContent=document.body.classList.contains("light")?"☀️":"🌙";
-};
+    closeBtn.onclick=closeMenu;
+    overlay.onclick=closeMenu;
 
+    // THEME
+    themeBtn.onclick=()=>{
+        document.body.classList.toggle("light");
+        themeBtn.textContent=
+            document.body.classList.contains("light")?"🌞":"🌙";
+    };
+
+    // TYPING
+    const text="Avanish Pal";
+    let i=0;
+    const typing=document.getElementById("typing");
+
+    function type(){
+        if(i<text.length){
+            typing.textContent+=text.charAt(i);
+            i++;
+            setTimeout(type,120);
+        }
+    }
+    type();
 });

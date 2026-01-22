@@ -1,331 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family:Poppins,sans-serif;
+    -webkit-tap-highlight-color:transparent;
 }
 
 body{
     background:linear-gradient(135deg,#1f1c2c,#928dab);
-    min-height:100vh;
     color:white;
-    overflow-x:hidden;
+    min-height:100vh;
 }
 
 /* HEADER */
 header{
     position:sticky;
     top:0;
-    z-index:20;
+    z-index:50;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:14px 22px;
-    background:rgba(20,20,30,0.75);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    padding:14px 20px;
+    background:#161625;
 }
 
 .profile{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
 }
 
 .profile img{
-    width:55px;
-    height:55px;
+    width:42px;
+    height:42px;
     border-radius:50%;
-    border:2px solid white;
 }
 
-.menu-btn{
-    font-size:26px;
+.header-actions{
+    display:flex;
+    gap:12px;
+}
+
+.menu-btn,.theme-btn{
+    background:none;
+    border:none;
+    color:white;
+    font-size:20px;
     cursor:pointer;
 }
 
-/* SIDE MENU */
+/* SIDE MENUS (TRANSFORM BASED – NO GLITCH) */
 .side-menu{
     position:fixed;
     top:0;
-    right:-280px;
-    width:280px;
+    right:0;
+    width:80%;
+    max-width:300px;
     height:100%;
     background:#111;
     padding:25px;
-    transition: right 0.18s ease-out;
-    z-index:10;
+    transform:translateX(100%);
+    transition:transform .25s ease;
+    z-index:40;
 }
 
-.side-menu h3{
-    margin-bottom:15px;
+.side-menu.active{
+    transform:translateX(0);
 }
 
-/* CLOSE BUTTON */
 .close-btn{
-    font-size:32px;
-    position:absolute;
-    top:15px;
-    right:20px;
+    font-size:28px;
     cursor:pointer;
 }
 
 /* OVERLAY */
 .overlay{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
+    inset:0;
+    background:rgba(0,0,0,.45);
     opacity:0;
     visibility:hidden;
-    transition: opacity 0.15s linear;
-    z-index:5;
-    pointer-events:none;
+    transition:.2s;
+    z-index:30;
 }
 
 /* CONTENT */
-.content{
-    padding:30px;
-    position:relative;
-    z-index:1;
-}
+.content{ padding:25px; }
 
 .box{
-    background: rgba(255,255,255,0.14);
-    padding:22px 26px;
-    margin-bottom:18px;
+    background:rgba(255,255,255,0.12);
+    padding:20px;
     border-radius:14px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    transition: all 0.25s ease;
-    }
-
-.box:hover{
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    margin-bottom:18px;
 }
 
-.social{
-    display:flex;
-    gap:20px;
+.highlight-box{
+    border-left:4px solid #00c6ff;
 }
 
-.social a{
-    text-decoration:none;
-    color:white;
-    padding:10px 18px;
-    border-radius:25px;
-    font-size:14px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.3);
-    transition:0.25s ease;
+.project-box{
+    border-left:4px solid #ffcc00;
 }
 
-.social a:hover{
-    transform: translateY(-2px) scale(1.04);
-}
-
-.insta{
-    background:#e1306c;
-}
-
-.fb{
-    background:#1877f2;
-}
-
-.content{
-    padding:30px;
-    animation: fadeIn 0.6s ease;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(12px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.resume-box{
-    text-align:center;
-}
-
-.resume-btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:12px 26px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#00c6ff,#0072ff);
-    color:white;
-    font-size:15px;
-    font-weight:500;
-    text-decoration:none;
-    box-shadow:0 8px 25px rgba(0,0,0,0.35);
-    transition:0.25s ease;
-}
-
-.resume-btn:hover{
-    transform: translateY(-3px) scale(1.05);
-    box-shadow:0 12px 30px rgba(0,0,0,0.45);
-    }
-
-.skill{
-    margin:12px 0;
-}
-
-.skill span{
-    font-size:14px;
-    display:block;
-    margin-bottom:4px;
-}
-
+/* SKILLS */
+.skill{ margin-bottom:12px; }
 .bar{
-    background:rgba(255,255,255,0.2);
+    background:rgba(255,255,255,.25);
     border-radius:20px;
-    overflow:hidden;
 }
-
 .fill{
     height:8px;
     border-radius:20px;
 }
+.html{width:70%;background:#ff6a00;}
+.css{width:65%;background:#00c6ff;}
+.js{width:40%;background:#f7df1e;}
 
-.fill.html{ width:70%; background:#ff6a00; }
-.fill.css{ width:65%; background:#00c6ff; }
-.fill.js{ width:40%; background:#f7df1e; }
-
-/* THEME BUTTON */
-.theme-btn{
-    background:transparent;
-    border:none;
-    font-size:22px;
-    cursor:pointer;
+/* BUTTONS */
+.resume-btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:12px 26px;
+    background:#00c6ff;
     color:white;
-    margin-right:12px;
+    border-radius:30px;
+    text-decoration:none;
 }
 
-/* LIGHT MODE */
-body.light{
-    background:#f4f6fb;
-    color:#111;
+/* SOCIAL */
+.social{
+    display:flex;
+    gap:15px;
 }
-
-body.light header{
-    background:#ffffffcc;
-}
-
-body.light .box{
-    background:#ffffff;
-    color:#111;
-}
-
-body.light .side-menu{
-    background:#fff;
-    color:#111;
-}
-
-body.light .social a{
+.social a{
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
     color:white;
-    }
-
-/* SMOOTH THEME TRANSITION */
-body,
-header,
-.box,
-.side-menu {
-    transition: background 0.35s ease, color 0.35s ease;
 }
-
-/* TOGGLE BUTTON ANIMATION */
-.theme-btn {
-    transition: transform 0.3s ease;
-}
-
-.theme-btn:active {
-    transform: rotate(180deg) scale(1.2);
-}
-
-.box ul li{
-    margin-bottom:6px;
-}
-
-.project-box{
-    border-left:4px solid #00c6ff;
-}
-
-.project-list{
-    margin-top:10px;
-    padding-left:18px;
-}
-
-.project-list li{
-    margin-bottom:6px;
-}
-
-/* HIGHLIGHTED BOX STYLE (like Projects card) */
-.highlight-box{
-    background: rgba(255,255,255,0.22);
-    border-left: 4px solid #00c6ff;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
-}
-
-/* PROJECT MENU */
-#projectMenu{
-    right:-300px;
-    width:300px;
-}
-
-.project-nav{
-    list-style:none;
-    padding-left:0;
-    margin-top:20px;
-}
-
-.project-nav li{
-    padding:12px;
-    margin-bottom:10px;
-    background:rgba(255,255,255,0.12);
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.25s;
-}
-
-.project-nav li:hover{
-    background:rgba(255,255,255,0.25);
-}
-
-/* PROJECT MENU WIDTH */
-#projectMenu{
-    width:300px;
-    right:-300px;
-    }
-
-/* PROJECT MENU – FULL FIX */
-#projectMenu{
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 85%;
-    max-width: 320px;
-    height: 100%;
-    background: rgba(20,20,30,0.95);
-    backdrop-filter: blur(12px);
-    padding: 25px;
-    transition: right 0.25s ease;
-    z-index: 30;
-}
-
-/* Overlay should fully cover screen */
-.overlay{
-    z-index: 25;
-}
-
-/* Prevent background scroll when menu open */
-body.menu-open{
-    overflow: hidden;
-}
+.insta{background:#e1306c;}
+.fb{background:#1877f2;}

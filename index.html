@@ -5,7 +5,7 @@
     <title>Avanish Pal | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css?v=18">
+    <link rel="stylesheet" href="style.css?v=20">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -25,7 +25,7 @@
     </div>
 </header>
 
-<!-- SIDE MENU -->
+<!-- CONTACT MENU -->
 <div class="side-menu" id="menu">
     <div class="close-btn" id="closeBtn">&times;</div>
     <h3>Contact</h3>
@@ -89,13 +89,9 @@
             <div class="project-card">
                 <h3>Personal Bio Website</h3>
                 <p>Responsive portfolio built using HTML, CSS & JavaScript.</p>
-                <a href="#" class="project-btn">View Project</a>
-            </div>
-
-            <div class="project-card">
-                <h3>Future Project</h3>
-                <p>Coming soon – new ideas & experiments.</p>
-                <span class="coming">Coming Soon</span>
+                <button class="project-btn" id="openProject">
+                    View Project
+                </button>
             </div>
         </div>
     </div>
@@ -122,7 +118,6 @@
         <a href="https://www.instagram.com/imnot.zenitsu" class="insta" target="_blank">
             <i class="fab fa-instagram"></i> Instagram
         </a>
-
         <a href="https://www.facebook.com/avanishpal0" class="fb" target="_blank">
             <i class="fab fa-facebook"></i> Facebook
         </a>
@@ -130,6 +125,41 @@
 
 </section>
 
-<script src="script.js?v=13"></script>
+<!-- PROJECT DETAIL PANEL -->
+<div class="project-panel" id="projectPanel">
+    <div class="close-btn" id="closeProject">&times;</div>
+
+    <h2>Personal Bio Website</h2>
+
+    <p>
+        A responsive personal portfolio website built using
+        HTML, CSS, and JavaScript.  
+        Includes dark/light theme toggle, animated menu,
+        project cards, and clean responsive layout.
+    </p>
+
+    <p><strong>Tech Stack:</strong></p>
+    <ul class="tech-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <div class="project-actions">
+        <a href="https://imnotansh01.github.io/my-bio-website"
+           target="_blank"
+           class="project-btn">
+           Live Demo
+        </a>
+
+        <a href="https://github.com/imnotansh01/my-bio-website"
+           target="_blank"
+           class="project-btn outline">
+           GitHub
+        </a>
+    </div>
+</div>
+
+<script src="script.js?v=14"></script>
 </body>
-                                         </html>
+</html>

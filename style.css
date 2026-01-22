@@ -56,11 +56,11 @@ header{
     position:fixed;
     top:0;
     right:-100%;
-    width:80%;
-    max-width:300px;
+    width:65%;
+    max-width:260px;
     height:100%;
     background:#111;
-    padding:25px;
+    padding:22px;
     transition:right .25s ease;
     z-index:20;
 }
@@ -137,3 +137,52 @@ header{
 }
 .insta{background:#e1306c;}
 .fb{background:#1877f2;}
+
+/* =====================
+   LIGHT THEME
+===================== */
+
+body.light{
+    background: linear-gradient(135deg,#f2f2f2,#d9d9d9);
+    color:#111;
+}
+
+body.light header{
+    background:#ffffff;
+    color:#111;
+}
+
+body.light .menu-btn,
+body.light .theme-btn{
+    color:#111;
+}
+
+body.light .box{
+    background: rgba(0,0,0,0.06);
+}
+
+body.light .highlight{
+    border-left-color:#007bff;
+}
+
+body.light .side-menu{
+    background:#ffffff;
+    color:#111;
+}
+
+body.light .overlay{
+    background: rgba(0,0,0,0.3);
+}
+
+body.light .resume-btn{
+    background:#007bff;
+    color:white;
+}
+
+body.light .insta{
+    background:#e1306c;
+}
+
+body.light .fb{
+    background:#1877f2;
+    }

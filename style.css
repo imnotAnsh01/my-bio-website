@@ -7,13 +7,21 @@
     font-family:'Poppins',sans-serif;
 }
 
+/* =====================
+   BASE THEME (DARK)
+===================== */
+
 body{
     background:linear-gradient(135deg,#1f1c2c,#928dab);
     min-height:100vh;
     color:white;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* HEADER */
+/* =====================
+   HEADER
+===================== */
+
 header{
     position:sticky;
     top:0;
@@ -23,7 +31,7 @@ header{
     align-items:center;
     padding:14px 22px;
     background:rgba(20,20,30,0.85);
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
 }
 
 .profile{
@@ -57,7 +65,10 @@ header{
     color:white;
 }
 
-/* SIDE MENU */
+/* =====================
+   SIDE MENU
+===================== */
+
 .side-menu{
     position:fixed;
     top:0;
@@ -75,7 +86,10 @@ header{
     cursor:pointer;
 }
 
-/* OVERLAY */
+/* =====================
+   OVERLAY
+===================== */
+
 .overlay{
     position:fixed;
     inset:0;
@@ -86,7 +100,10 @@ header{
     z-index:25;
 }
 
-/* CONTENT */
+/* =====================
+   CONTENT
+===================== */
+
 .content{
     max-width:900px;
     margin:auto;
@@ -109,15 +126,19 @@ header{
     margin-bottom:8px;
 }
 
-/* SKILLS */
+/* =====================
+   SKILLS
+===================== */
+
 .skill{
-    margin:12px 0;
+    margin:18px 0;
 }
 
 .bar{
     background:rgba(255,255,255,0.3);
     height:8px;
     border-radius:20px;
+    overflow:hidden;
 }
 
 .fill{
@@ -129,20 +150,40 @@ header{
 .fill.css{width:65%;background:#00c6ff;}
 .fill.js{width:40%;background:#f7df1e;}
 
-/* TWO COLUMN */
+/* =====================
+   TWO COLUMN LAYOUT
+===================== */
+
 .two-column{
     display:grid;
     grid-template-columns:1fr;
     gap:18px;
 }
 
+/* PC / Tablet */
 @media (min-width:700px){
+
     .two-column{
         grid-template-columns:1.2fr 0.8fr;
+        align-items:stretch;
+    }
+
+    .right-col{
+        display:flex;
+    }
+
+    .right-col .box{
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
     }
 }
 
-/* SOCIAL */
+/* =====================
+   SOCIAL
+===================== */
+
 .social{
     display:flex;
     gap:12px;
@@ -160,6 +201,10 @@ header{
 .insta{background:#e1306c;}
 .fb{background:#1877f2;}
 
+/* =====================
+   RESUME
+===================== */
+
 .resume-box{
     text-align:center;
 }
@@ -174,7 +219,44 @@ header{
     text-decoration:none;
 }
 
-/* Make Skills box visually taller */
-.right-col .box{
-    padding-bottom: 28px;
+/* =====================
+   LIGHT THEME
+===================== */
+
+body.light{
+    background:linear-gradient(135deg,#f3f4f6,#dcdfe4);
+    color:#111;
 }
+
+body.light header{
+    background:rgba(255,255,255,0.85);
+}
+
+body.light .box{
+    background:rgba(255,255,255,0.9);
+    color:#111;
+}
+
+body.light .highlight{
+    border-left:4px solid #0072ff;
+}
+
+body.light .side-menu{
+    background:#fff;
+    color:#111;
+}
+
+body.light .theme-btn{
+    color:#111;
+}
+
+/* =====================
+   MOBILE PERFORMANCE FIX
+===================== */
+
+@media (max-width:600px){
+    header{
+        backdrop-filter:none;
+        background:rgba(20,20,30,0.95);
+    }
+    }

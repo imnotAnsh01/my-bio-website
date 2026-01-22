@@ -173,3 +173,8 @@ header{
     color:white;
     text-decoration:none;
 }
+
+/* Make Skills box visually taller */
+.right-col .box{
+    padding-bottom: 28px;
+}

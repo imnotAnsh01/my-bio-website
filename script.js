@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     const projectPanel=document.getElementById("projectPanel");
     const closeProject=document.getElementById("closeProject");
 
-    // MENU
+    /* ---------------- MENU ---------------- */
     menuBtn.onclick=()=>{
         menu.style.right="0";
         overlay.style.opacity="1";
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     closeBtn.onclick=closeMenu;
     overlay.onclick=closeMenu;
 
-    // PROJECT PANEL
+    /* ------------- PROJECT PANEL ----------- */
     openProject.onclick=()=>{
         projectPanel.style.right="0";
         overlay.style.opacity="1";
@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded",()=>{
         overlay.style.visibility="hidden";
     };
 
-    // THEME
+    /* ---------------- THEME ---------------- */
     themeBtn.onclick=()=>{
         document.body.classList.toggle("light");
         themeBtn.textContent=
             document.body.classList.contains("light")?"🌞":"🌙";
     };
 
-    // TYPING
+    /* --------------- TYPING --------------- */
     const text="Avanish Pal";
     let i=0;
     const typing=document.getElementById("typing");
@@ -59,4 +59,24 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     }
     type();
+
+    /* -------- IMAGE FULL SCREEN PREVIEW ----- */
+    const preview=document.getElementById("imgPreview");
+    const previewImg=document.getElementById("previewImg");
+    const closePreview=document.getElementById("closePreview");
+    const panelImage=document.querySelector(".modal-img");
+
+    panelImage.onclick=()=>{
+        previewImg.src=panelImage.src;
+        preview.style.opacity="1";
+        preview.style.visibility="visible";
+    };
+
+    function closeImage(){
+        preview.style.opacity="0";
+        preview.style.visibility="hidden";
+    }
+
+    closePreview.onclick=closeImage;
+    preview.onclick=closeImage; // tap anywhere to close
 });

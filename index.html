@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Avanish Pal | Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Avanish Pal | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=21">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
 <header>
@@ -26,6 +25,7 @@
     </div>
 </header>
 
+<!-- CONTACT MENU -->
 <div class="side-menu" id="menu">
     <div class="close-btn" id="closeBtn">&times;</div>
     <h3>Contact</h3>
@@ -36,76 +36,135 @@
 
 <section class="content">
 
-<div class="two-column">
-<div class="left-col">
-<div class="box highlight">
-<h1>About Me</h1>
-<p>Hi, I’m <strong>Avanish Pal</strong>. Passionate learner in technology, coding & creativity.</p>
-</div>
+    <!-- TWO COLUMN -->
+    <div class="two-column">
 
-<div class="box highlight">
-<h1>Goals</h1>
-<p>Diploma in Pharmacy (2nd Year) — combining healthcare with technology.</p>
-</div>
-</div>
+        <div class="left-col">
+            <div class="box highlight">
+                <h1>About Me</h1>
+                <p>
+                    Hi, I’m <strong>Avanish Pal</strong>.  
+                    I am a passionate learner interested in technology,
+                    creativity, coding, gaming and music.
+                </p>
+            </div>
 
-<div class="right-col">
-<div class="box">
-<h1>Skills</h1>
-<div class="skill"><span>HTML</span><div class="bar"><div class="fill html"></div></div></div>
-<div class="skill"><span>CSS</span><div class="bar"><div class="fill css"></div></div></div>
-<div class="skill"><span>JavaScript</span><div class="bar"><div class="fill js"></div></div></div>
-</div>
-</div>
-</div>
+            <div class="box highlight">
+                <h1>Goals</h1>
+                <p>
+                    Currently pursuing Diploma in Pharmacy (2nd Year)
+                    and aiming to combine healthcare knowledge with technology.
+                </p>
+            </div>
+        </div>
 
-<!-- PROJECTS (NO IMAGE HERE) -->
-<div class="box highlight">
-<h1>Projects</h1>
-<div class="project-card">
-<h3>Personal Bio Website</h3>
-<p>Responsive portfolio built using HTML, CSS & JavaScript.</p>
-<button class="project-btn" id="openProject">View Project</button>
-</div>
-</div>
+        <div class="right-col">
+            <div class="box">
+                <h1>Skills</h1>
 
-<div class="box highlight">
-<h1>Education</h1>
-<p>12th (Science – Biology)<br>Diploma in Pharmacy (2nd Year)</p>
-</div>
+                <div class="skill">
+                    <span>HTML</span>
+                    <div class="bar"><div class="fill html"></div></div>
+                </div>
 
-<div class="box resume-box">
-<h1>Resume</h1>
-<a href="resume.pdf" download class="resume-btn">⬇ Download Resume</a>
-</div>
+                <div class="skill">
+                    <span>CSS</span>
+                    <div class="bar"><div class="fill css"></div></div>
+                </div>
+
+                <div class="skill">
+                    <span>JavaScript</span>
+                    <div class="bar"><div class="fill js"></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="box highlight">
+        <h1>Projects</h1>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Personal Bio Website</h3>
+                <p>Responsive portfolio built using HTML, CSS & JavaScript.</p>
+                <button class="project-btn" id="openProject">
+                    View Project
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="box highlight">
+        <h1>Education</h1>
+        <p>
+            12th (Science – Biology)<br>
+            Diploma in Pharmacy (2nd Year) – Ongoing
+        </p>
+    </div>
+
+    <!-- RESUME -->
+    <div class="box resume-box">
+        <h1>Resume</h1>
+        <a href="resume.pdf" download class="resume-btn">
+            ⬇ Download Resume
+        </a>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="social">
+        <a href="https://www.instagram.com/imnot.zenitsu" class="insta" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/avanishpal0" class="fb" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+    </div>
 
 </section>
 
-<!-- PROJECT PANEL (FULL SCREEN MOBILE) -->
+<!-- PROJECT DETAIL PANEL -->
 <div class="project-panel" id="projectPanel">
-<div class="close-btn" id="closeProject">&times;</div>
+    <div class="close-btn" id="closeProject">&times;</div>
 
-<img src="images/project1.jpg" class="panel-img" id="panelImage">
+    <img src="images/project1.jpg" class="modal-img">
 
-<h2>Personal Bio Website</h2>
-<p>A responsive personal portfolio website with dark/light mode.</p>
+    <h2>Personal Bio Website</h2>
 
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-</ul>
+    <p>
+        A responsive personal portfolio website built using
+        HTML, CSS, and JavaScript.
+    </p>
 
-<a href="https://imnotansh01.github.io/my-bio-website" target="_blank" class="project-btn">Live Demo</a>
-<a href="https://github.com/imnotansh01/my-bio-website" target="_blank" class="project-btn outline">GitHub</a>
+    <p><strong>Tech Stack:</strong></p>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <div class="project-actions">
+        <a href="https://imnotansh01.github.io/my-bio-website"
+           target="_blank"
+           class="project-btn">
+           Live Demo
+        </a>
+
+        <a href="https://github.com/imnotansh01/my-bio-website"
+           target="_blank"
+           class="project-btn outline">
+           GitHub
+        </a>
+    </div>
 </div>
 
-<!-- IMAGE PREVIEW -->
+<script src="script.js?v=16"></script>
+ <!-- IMAGE PREVIEW MODAL -->
 <div class="img-preview" id="imgPreview">
-<span class="close-preview" id="closePreview">&times;</span>
-<img id="previewImg">
-</div>
-
-<script src="script.js"></script>
+    <span class="close-preview" id="closePreview">&times;</span>
+    <img id="previewImg">
+</div>   
 </body>
 </html>

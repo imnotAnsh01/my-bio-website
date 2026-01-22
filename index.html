@@ -1,112 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Avanish Pal | Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+document.addEventListener("DOMContentLoaded", () => {
 
-    <link rel="stylesheet" href="style.css?v=22">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-<body>
+    /* ---------------- PROJECT DATA ---------------- */
+    const projects = [
+        {
+            title: "Personal Bio Website",
+            desc: "Responsive portfolio website with dark/light mode, animated menu and clean UI.",
+            tech: ["HTML", "CSS", "JavaScript"],
+            image: "images/project1.jpg",
+            demo: "https://imnotansh01.github.io/my-bio-website",
+            github: "https://github.com/imnotansh01/my-bio-website"
+        }
+    ];
 
-<header>
-    <div class="profile">
-        <img src="profile.jpg" alt="Profile">
-        <h2 id="typing"></h2>
-    </div>
+    const projectGrid = document.getElementById("projectGrid");
+    const projectPanel = document.getElementById("projectPanel");
+    const overlay = document.getElementById("overlay");
 
-    <div class="header-actions">
-        <button id="themeToggle" class="theme-btn">🌙</button>
-        <div class="menu-btn" id="menuBtn">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-</header>
+    const panelImage = document.getElementById("panelImage");
+    const panelTitle = document.getElementById("panelTitle");
+    const panelDesc = document.getElementById("panelDesc");
+    const panelTech = document.getElementById("panelTech");
+    const panelDemo = document.getElementById("panelDemo");
+    const panelGit = document.getElementById("panelGit");
 
-<!-- CONTACT MENU -->
-<div class="side-menu" id="menu">
-    <div class="close-btn" id="closeBtn">&times;</div>
-    <h3>Contact</h3>
-    <p>📧 neonman242@gmail.com</p>
-</div>
+    /* ---------------- RENDER PROJECTS ---------------- */
+    projects.forEach((p, index) => {
+        const card = document.createElement("div");
+        card.className = "project-card";
 
-<div class="overlay" id="overlay"></div>
+        card.innerHTML = `
+            <img src="${p.image}" class="project-thumb zoomable">
+            <h3>${p.title}</h3>
+            <p>${p.desc}</p>
+            <button class="project-btn">View Project</button>
+        `;
 
-<section class="content">
+        card.querySelector("button").onclick = () => openProject(p);
+        card.querySelector("img").onclick = () => openImage(p.image);
 
-    <div class="two-column">
-        <div class="left-col">
-            <div class="box highlight">
-                <h1>About Me</h1>
-                <p>
-                    Hi, I’m <strong>Avanish Pal</strong>. Passionate learner in
-                    technology, coding, gaming & creativity.
-                </p>
-            </div>
+        projectGrid.appendChild(card);
+    });
 
-            <div class="box highlight">
-                <h1>Goals</h1>
-                <p>
-                    Diploma in Pharmacy (2nd Year) — combining healthcare
-                    knowledge with technology.
-                </p>
-            </div>
-        </div>
+    function openProject(p) {
+        panelImage.src = p.image;
+        panelTitle.textContent = p.title;
+        panelDesc.textContent = p.desc;
+        panelTech.innerHTML = "";
+        p.tech.forEach(t => panelTech.innerHTML += `<li>${t}</li>`);
+        panelDemo.href = p.demo;
+        panelGit.href = p.github;
 
-        <div class="right-col">
-            <div class="box">
-                <h1>Skills</h1>
-                <div class="skill"><span>HTML</span><div class="bar"><div class="fill html"></div></div></div>
-                <div class="skill"><span>CSS</span><div class="bar"><div class="fill css"></div></div></div>
-                <div class="skill"><span>JavaScript</span><div class="bar"><div class="fill js"></div></div></div>
-            </div>
-        </div>
-    </div>
+        projectPanel.style.right = "0";
+        overlay.style.opacity = "1";
+        overlay.style.visibility = "visible";
+    }
 
-    <!-- PROJECTS (DYNAMIC) -->
-    <div class="box highlight">
-        <h1>Projects</h1>
-        <div class="project-grid" id="projectGrid"></div>
-    </div>
+    /* ---------------- CLOSE ALL ---------------- */
+    function closeAll() {
+        projectPanel.style.right = "-340px";
+        overlay.style.opacity = "0";
+        overlay.style.visibility = "hidden";
+    }
 
-    <div class="box highlight">
-        <h1>Education</h1>
-        <p>12th (Science – Biology)<br>Diploma in Pharmacy (2nd Year)</p>
-    </div>
+    document.getElementById("closeProject").onclick = closeAll;
+    overlay.onclick = closeAll;
 
-    <div class="box resume-box">
-        <h1>Resume</h1>
-        <a href="resume.pdf" download class="resume-btn">⬇ Download Resume</a>
-    </div>
+    /* ---------------- IMAGE ZOOM ---------------- */
+    const imgPreview = document.getElementById("imgPreview");
+    const previewImg = document.getElementById("previewImg");
+    document.getElementById("closePreview").onclick = () => imgPreview.style.visibility = "hidden";
 
-</section>
+    function openImage(src) {
+        previewImg.src = src;
+        imgPreview.style.visibility = "visible";
+        imgPreview.style.opacity = "1";
+    }
 
-<!-- PROJECT PANEL -->
-<div class="project-panel" id="projectPanel">
-    <div class="close-btn" id="closeProject">&times;</div>
+    imgPreview.onclick = () => imgPreview.style.visibility = "hidden";
 
-    <img id="panelImage" class="modal-img zoomable">
-
-    <h2 id="panelTitle"></h2>
-    <p id="panelDesc"></p>
-
-    <p><strong>Tech Stack:</strong></p>
-    <ul id="panelTech"></ul>
-
-    <div class="project-actions">
-        <a id="panelDemo" target="_blank" class="project-btn">Live Demo</a>
-        <a id="panelGit" target="_blank" class="project-btn outline">GitHub</a>
-    </div>
-</div>
-
-<!-- IMAGE ZOOM PREVIEW -->
-<div class="img-preview" id="imgPreview">
-    <span class="close-preview" id="closePreview">&times;</span>
-    <img id="previewImg">
-</div>
-
-<script src="script.js?v=22"></script>
-</body>
-</html>
+});

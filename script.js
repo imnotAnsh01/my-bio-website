@@ -1,70 +1,63 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-    const menu=document.getElementById("menu");
-    const menuBtn=document.getElementById("menuBtn");
-    const closeBtn=document.getElementById("closeBtn");
-    const overlay=document.getElementById("overlay");
+    /* CONTACT MENU */
+    const menu = document.getElementById("menu");
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const overlay = document.getElementById("overlay");
 
-    const projectPanel=document.getElementById("projectPanel");
-    const openProject=document.getElementById("openProject");
-    const closeProject=document.getElementById("closeProject");
-
-    const themeBtn=document.getElementById("themeToggle");
-
-    // MENU
-    menuBtn.onclick=()=>{
-        menu.style.right="0";
-        overlay.style.opacity="1";
-        overlay.style.visibility="visible";
+    menuBtn.onclick = () => {
+        menu.style.right = "0";
+        overlay.style.opacity = "1";
+        overlay.style.visibility = "visible";
     };
 
-    function closeAll(){
-        menu.style.right="-260px";
-        projectPanel.style.right="-320px";
-        overlay.style.opacity="0";
-        overlay.style.visibility="hidden";
+    function closeMenu(){
+        menu.style.right = "-260px";
+        overlay.style.opacity = "0";
+        overlay.style.visibility = "hidden";
     }
 
-    closeBtn.onclick=closeAll;
-    overlay.onclick=closeAll;
+    closeBtn.onclick = closeMenu;
+    overlay.onclick = closeMenu;
 
-    // PROJECT PANEL
-    openProject.onclick=()=>{
-        projectPanel.style.right="0";
-        overlay.style.opacity="1";
-        overlay.style.visibility="visible";
+    /* PROJECT PANEL */
+    const openProjectBtn = document.getElementById("openProject");
+    const projectPanel = document.getElementById("projectPanel");
+    const closeProjectBtn = document.getElementById("closeProject");
+
+    openProjectBtn.onclick = () => {
+        projectPanel.style.right = "0";
+        overlay.style.opacity = "1";
+        overlay.style.visibility = "visible";
     };
 
-    closeProject.onclick=closeAll;
-
-    // THEME (remember)
-    const savedTheme=localStorage.getItem("theme");
-    if(savedTheme==="light"){
-        document.body.classList.add("light");
-        themeBtn.textContent="🌞";
+    function closeProject(){
+        projectPanel.style.right = "-320px";
+        overlay.style.opacity = "0";
+        overlay.style.visibility = "hidden";
     }
 
-    themeBtn.onclick=()=>{
+    closeProjectBtn.onclick = closeProject;
+
+    /* THEME TOGGLE */
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.onclick = () => {
         document.body.classList.toggle("light");
-        if(document.body.classList.contains("light")){
-            localStorage.setItem("theme","light");
-            themeBtn.textContent="🌞";
-        }else{
-            localStorage.setItem("theme","dark");
-            themeBtn.textContent="🌙";
-        }
+        themeBtn.textContent =
+            document.body.classList.contains("light") ? "🌞" : "🌙";
     };
 
-    // TYPING
-    const text="Avanish Pal";
-    let i=0;
-    const typing=document.getElementById("typing");
+    /* TYPING EFFECT */
+    const text = "Avanish Pal";
+    let i = 0;
+    const typing = document.getElementById("typing");
 
     function type(){
-        if(i<text.length){
-            typing.textContent+=text.charAt(i);
+        if(i < text.length){
+            typing.textContent += text.charAt(i);
             i++;
-            setTimeout(type,120);
+            setTimeout(type, 120);
         }
     }
     type();

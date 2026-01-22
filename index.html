@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Bio Website</title>
-    <link rel="stylesheet" href="style.css?v=10">
+    <title>Avanish Pal | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css?v=100">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -14,144 +16,139 @@
         <h2 id="typing"></h2>
     </div>
 
-    <div style="display:flex; align-items:center; gap:10px;">
+    <div class="header-actions">
         <button id="themeToggle" class="theme-btn">🌙</button>
 
         <div class="menu-btn" id="menuBtn">
             <i class="fas fa-bars"></i>
         </div>
+
         <div class="menu-btn" id="projectBtn">
-    <i class="fas fa-folder-open"></i>
+            <i class="fas fa-folder-open"></i>
         </div>
     </div>
 </header>
 
-<!-- SIDE MENU -->
+<!-- MAIN MENU -->
+<div class="side-menu" id="menu">
+    <div class="close-btn" id="closeMenu">&times;</div>
+    <h3>Contact</h3>
+    <p>📧 neonman242@gmail.com</p>
+</div>
+
+<!-- PROJECTS MENU -->
 <div class="side-menu" id="projectMenu">
     <div class="close-btn" id="closeProject">&times;</div>
-
-    <h3>My Projects</h3>
+    <h3>Projects</h3>
 
     <ul class="project-nav">
-        <li>Personal Bio Website</li>
+        <li id="bioProject">Personal Bio Website</li>
         <li>Future Project 1</li>
         <li>Future Project 2</li>
     </ul>
 </div>
-    
-<div class="side-menu" id="menu">
-    <div class="close-btn" id="closeBtn">&times;</div>
 
-    <h3>Contact Details</h3>
-    <p>📞 Phone: Coming Soon</p>
-    <p>📧 Email: neonman242@gmail.com</p>
+<!-- PROJECT DETAIL PANEL -->
+<div class="side-menu" id="projectDetail">
+    <div class="close-btn" id="closeDetail">&times;</div>
+
+    <h3>Personal Bio Website</h3>
+    <p>
+        A modern responsive portfolio website built using
+        HTML, CSS and JavaScript.
+        <br><br>
+        Features include dark/light mode, animated menus,
+        smooth transitions and GitHub Pages hosting.
+    </p>
+
+    <a href="https://notansh01.github.io"
+       target="_blank"
+       class="resume-btn">
+        🌐 Visit Website
+    </a>
 </div>
 
-<!-- OVERLAY -->
 <div class="overlay" id="overlay"></div>
 
-<!-- MAIN CONTENT -->
 <section class="content">
+
     <div class="box highlight-box">
-    <h1>About Me</h1>
-    <p>
-        Hi, I’m <strong>Avanish Pal</strong>.  
-        I am a passionate learner with a strong interest in technology and creativity.
-        I enjoy exploring coding, gaming, and music, which help me improve my logical
-        thinking as well as creative skills.
-        <br><br>
-        I believe in continuous learning and self-growth, and I am always curious
-        about how things work in the digital world. My goal is to develop my skills
-        and build something meaningful in the future.
-    </p>
+        <h1>About Me</h1>
+        <p>
+            Hi, I’m <strong>Avanish Pal</strong>.  
+            A passionate learner interested in technology,
+            creativity, coding, gaming and music.
+        </p>
     </div>
 
     <div class="box highlight-box">
-    <h1>Hobbies</h1>
-    <p>
-        🎮 Gaming – strategy and competitive games  
-        <br>
-        💻 Coding – learning web development  
-        <br>
-        🎵 Music – listening and exploring new genres
-    </p>
+        <h1>Hobbies</h1>
+        <p>
+            🎮 Gaming<br>
+            💻 Coding<br>
+            🎵 Music
+        </p>
     </div>
 
     <div class="box">
-    <h1>Skills</h1>
+        <h1>Skills</h1>
 
-    <div class="skill">
-        <span>HTML</span>
-        <div class="bar"><div class="fill html"></div></div>
+        <div class="skill">
+            <span>HTML</span>
+            <div class="bar"><div class="fill html"></div></div>
+        </div>
+
+        <div class="skill">
+            <span>CSS</span>
+            <div class="bar"><div class="fill css"></div></div>
+        </div>
+
+        <div class="skill">
+            <span>JavaScript</span>
+            <div class="bar"><div class="fill js"></div></div>
+        </div>
     </div>
 
-    <div class="skill">
-        <span>CSS</span>
-        <div class="bar"><div class="fill css"></div></div>
+    <div class="box highlight-box">
+        <h1>Goals</h1>
+        <p>
+            Currently pursuing D. Pharma and aiming to
+            combine healthcare knowledge with technology.
+        </p>
     </div>
 
-    <div class="skill">
-        <span>JavaScript</span>
-        <div class="bar"><div class="fill js"></div></div>
+    <div class="box project-box">
+        <h1>Projects</h1>
+        <p><strong>Personal Bio Website</strong></p>
+        <ul>
+            <li>Dark & Light mode</li>
+            <li>Animated menus</li>
+            <li>Sticky header</li>
+            <li>GitHub Pages hosting</li>
+        </ul>
     </div>
-</div>
 
-<div class="box highlight-box">
-    <h1>Goals</h1>
-    <p>
-        I am currently pursuing D. Pharma and aim to build a strong foundation
-        in healthcare while also improving my technical skills.
-        <br><br>
-        My goal is to combine pharmacy knowledge with technology and explore
-        opportunities in health-tech and digital solutions in the future.
-    </p>
-</div>
-
-<div class="box project-box">
-    <h1>Projects</h1>
-
-    <p>
-        <strong>Personal Bio Website</strong><br>
-        A responsive personal portfolio website built using
-        HTML, CSS, and JavaScript.
-    </p>
-
-    <ul class="project-list">
-        <li>Dark & Light mode toggle</li>
-        <li>Animated side menu</li>
-        <li>Sticky header</li>
-        <li>Resume download feature</li>
-        <li>Hosted on GitHub Pages</li>
-    </ul>
-</div>
-    
     <div class="box highlight-box">
         <h1>Education</h1>
-        <p>12th Pass out / Studying in Diploma In Pharmacy 2nd Year</p>
+        <p>12th (Science – Biology)<br>D. Pharma (2nd Year)</p>
     </div>
 
     <div class="box resume-box">
-    <h1>Resume</h1>
-    <a href="resume.pdf" download class="resume-btn">
-        ⬇ Download Resume
-    </a>
+        <h1>Resume</h1>
+        <a href="resume.pdf" download class="resume-btn">⬇ Download Resume</a>
     </div>
-    
-    <div class="social">
-    <a href="https://www.instagram.com/imnot.zenitsu"
-       class="insta"
-       target="_blank">
-       <i class="fab fa-instagram"></i> Instagram
-    </a>
 
-    <a href="https://www.facebook.com/avanishpal0"
-       class="fb"
-       target="_blank">
-       <i class="fab fa-facebook"></i> Facebook
-    </a>
+    <div class="social">
+        <a href="https://www.instagram.com/imnot.zenitsu" class="insta" target="_blank">
+            Instagram
+        </a>
+        <a href="https://www.facebook.com/avanishpal0" class="fb" target="_blank">
+            Facebook
+        </a>
     </div>
+
 </section>
 
-<script src="script.js?v=11"></script>
+<script src="script.js?v=100"></script>
 </body>
-</html>
+    </html>

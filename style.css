@@ -170,3 +170,28 @@ header{
     transform: translateY(-3px) scale(1.05);
     box-shadow:0 12px 30px rgba(0,0,0,0.45);
     }
+
+.skill{
+    margin:12px 0;
+}
+
+.skill span{
+    font-size:14px;
+    display:block;
+    margin-bottom:4px;
+}
+
+.bar{
+    background:rgba(255,255,255,0.2);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:8px;
+    border-radius:20px;
+}
+
+.fill.html{ width:70%; background:#ff6a00; }
+.fill.css{ width:65%; background:#00c6ff; }
+.fill.js{ width:40%; background:#f7df1e; }

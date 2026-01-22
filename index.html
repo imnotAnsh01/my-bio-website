@@ -5,13 +5,12 @@
     <title>Avanish Pal | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css?v=23">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
 <header>
     <div class="profile">
         <img src="profile.jpg" alt="Profile">
@@ -26,22 +25,18 @@
     </div>
 </header>
 
-<!-- ================= CONTACT MENU ================= -->
+<!-- CONTACT MENU -->
 <div class="side-menu" id="menu">
     <div class="close-btn" id="closeBtn">&times;</div>
     <h3>Contact</h3>
     <p>📧 neonman242@gmail.com</p>
 </div>
 
-<!-- ✅ OVERLAY (IMPORTANT – JS BREAK YAHI THA) -->
 <div class="overlay" id="overlay"></div>
 
-<!-- ================= MAIN CONTENT ================= -->
 <section class="content">
 
-    <!-- TWO COLUMN -->
     <div class="two-column">
-
         <div class="left-col">
             <div class="box highlight">
                 <h1>About Me</h1>
@@ -63,47 +58,24 @@
         <div class="right-col">
             <div class="box">
                 <h1>Skills</h1>
-
-                <div class="skill">
-                    <span>HTML</span>
-                    <div class="bar"><div class="fill html"></div></div>
-                </div>
-
-                <div class="skill">
-                    <span>CSS</span>
-                    <div class="bar"><div class="fill css"></div></div>
-                </div>
-
-                <div class="skill">
-                    <span>JavaScript</span>
-                    <div class="bar"><div class="fill js"></div></div>
-                </div>
+                <div class="skill"><span>HTML</span><div class="bar"><div class="fill html"></div></div></div>
+                <div class="skill"><span>CSS</span><div class="bar"><div class="fill css"></div></div></div>
+                <div class="skill"><span>JavaScript</span><div class="bar"><div class="fill js"></div></div></div>
             </div>
         </div>
-
     </div>
 
-    <!-- ================= PROJECTS ================= -->
+    <!-- PROJECT (NO IMAGE HERE) -->
     <div class="box highlight">
         <h1>Projects</h1>
 
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="images/project1.jpg"
-                     class="project-thumb zoomable"
-                     alt="Project Image">
-
-                <h3>Personal Bio Website</h3>
-                <p>Responsive portfolio built using HTML, CSS & JavaScript.</p>
-
-                <button class="project-btn" id="openProject">
-                    View Project
-                </button>
-            </div>
+        <div class="project-card">
+            <h3>Personal Bio Website</h3>
+            <p>Responsive portfolio built using HTML, CSS & JavaScript.</p>
+            <button class="project-btn" id="openProject">View Project</button>
         </div>
     </div>
 
-    <!-- ================= EDUCATION ================= -->
     <div class="box highlight">
         <h1>Education</h1>
         <p>
@@ -112,29 +84,23 @@
         </p>
     </div>
 
-    <!-- ================= RESUME ================= -->
     <div class="box resume-box">
         <h1>Resume</h1>
-        <a href="resume.pdf" download class="resume-btn">
-            ⬇ Download Resume
-        </a>
+        <a href="resume.pdf" download class="resume-btn">⬇ Download Resume</a>
     </div>
 
 </section>
 
-<!-- ================= PROJECT DETAIL PANEL ================= -->
+<!-- PROJECT DETAIL PANEL -->
 <div class="project-panel" id="projectPanel">
     <div class="close-btn" id="closeProject">&times;</div>
 
-    <img src="images/project1.jpg"
-         class="modal-img zoomable"
-         id="panelImage">
+    <img src="images/project1.jpg" class="modal-img zoomable" id="panelImage">
 
     <h2>Personal Bio Website</h2>
-
     <p>
-        A responsive personal portfolio website built using
-        HTML, CSS, and JavaScript.
+        A responsive portfolio website with dark/light mode,
+        animated menu, and clean layout.
     </p>
 
     <p><strong>Tech Stack:</strong></p>
@@ -145,27 +111,17 @@
     </ul>
 
     <div class="project-actions">
-        <a href="https://imnotansh01.github.io/my-bio-website"
-           target="_blank"
-           class="project-btn">
-           Live Demo
-        </a>
-
-        <a href="https://github.com/imnotansh01/my-bio-website"
-           target="_blank"
-           class="project-btn outline">
-           GitHub
-        </a>
+        <a href="https://imnotansh01.github.io/my-bio-website" target="_blank" class="project-btn">Live Demo</a>
+        <a href="https://github.com/imnotansh01/my-bio-website" target="_blank" class="project-btn outline">GitHub</a>
     </div>
 </div>
 
-<!-- ================= IMAGE FULLSCREEN PREVIEW ================= -->
+<!-- IMAGE PREVIEW -->
 <div class="img-preview" id="imgPreview">
     <span class="close-preview" id="closePreview">&times;</span>
     <img id="previewImg">
 </div>
 
-<!-- ================= SCRIPT ================= -->
-<script src="script.js?v=23"></script>
+<script src="script.js"></script>
 </body>
 </html>

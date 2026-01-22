@@ -266,3 +266,10 @@ header,
 .project-list li{
     margin-bottom:6px;
 }
+
+/* HIGHLIGHTED BOX STYLE (like Projects card) */
+.highlight-box{
+    background: rgba(255,255,255,0.22);
+    border-left: 4px solid #00c6ff;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+}

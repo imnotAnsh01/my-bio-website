@@ -246,3 +246,30 @@ body.light .project-panel{background:#fff;color:#111;}
     color:white;
     cursor:pointer;
 }
+
+/* IMAGE ZOOM */
+.zoomable {
+    cursor: zoom-in;
+}
+
+.img-preview {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 200;
+}
+
+.img-preview img {
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.3s;
+}
+
+.img-preview img:hover {
+    transform: scale(1.1);
+}

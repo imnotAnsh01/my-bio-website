@@ -15,42 +15,55 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ---------------- MENU ---------------- */
     menuBtn.onclick = () => {
         menu.style.right = "0";
-        overlay.style.opacity = "1";
-        overlay.style.visibility = "visible";
+        showOverlay();
     };
 
-    closeBtn.onclick = () => {
-        closeAll();
-    };
+    closeBtn.onclick = closeAll;
 
     /* ---------------- PROJECT PANEL ---------------- */
     openProject.onclick = () => {
         projectPanel.style.right = "0";
-        overlay.style.opacity = "1";
-        overlay.style.visibility = "visible";
+        showOverlay();
     };
 
-    closeProject.onclick = () => {
-        closeAll();
-    };
+    closeProject.onclick = closeAll;
 
-    /* ---------------- OVERLAY (GLOBAL CLOSE) ---------------- */
-    overlay.onclick = () => {
-        closeAll();
-    };
+    /* ---------------- OVERLAY ---------------- */
+    overlay.onclick = closeAll;
 
     function closeAll() {
         menu.style.right = "-260px";
         projectPanel.style.right = "-340px";
+        hideOverlay();
+    }
+
+    function showOverlay() {
+        overlay.style.opacity = "1";
+        overlay.style.visibility = "visible";
+    }
+
+    function hideOverlay() {
         overlay.style.opacity = "0";
         overlay.style.visibility = "hidden";
     }
 
-    /* ---------------- THEME TOGGLE ---------------- */
+    /* ---------------- THEME (SAVE + LOAD) ---------------- */
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+        document.body.classList.add("light");
+        themeBtn.textContent = "🌞";
+    }
+
     themeBtn.onclick = () => {
         document.body.classList.toggle("light");
-        themeBtn.textContent =
-            document.body.classList.contains("light") ? "🌞" : "🌙";
+
+        if (document.body.classList.contains("light")) {
+            localStorage.setItem("theme", "light");
+            themeBtn.textContent = "🌞";
+        } else {
+            localStorage.setItem("theme", "dark");
+            themeBtn.textContent = "🌙";
+        }
     };
 
     /* ---------------- TYPING EFFECT ---------------- */
@@ -67,25 +80,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     typeEffect();
 
-    /* ---------------- IMAGE FULLSCREEN PREVIEW ---------------- */
+    /* ---------------- IMAGE FULLSCREEN + ZOOM ---------------- */
     const preview = document.getElementById("imgPreview");
     const previewImg = document.getElementById("previewImg");
     const closePreview = document.getElementById("closePreview");
+    const panelImage = document.getElementById("panelImage");
 
-    document.querySelectorAll(".project-thumb, .modal-img").forEach(img => {
-        img.onclick = () => {
-            previewImg.src = img.src;
-            preview.style.opacity = "1";
-            preview.style.visibility = "visible";
-        };
+    let scale = 1;
+
+    panelImage.onclick = () => {
+        previewImg.src = panelImage.src;
+        preview.style.opacity = "1";
+        preview.style.visibility = "visible";
+        scale = 1;
+        previewImg.style.transform = "scale(1)";
+    };
+
+    preview.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        scale += e.deltaY * -0.001;
+        scale = Math.min(Math.max(1, scale), 3);
+        previewImg.style.transform = `scale(${scale})`;
     });
 
-    function closeImagePreview() {
+    function closeImage() {
         preview.style.opacity = "0";
         preview.style.visibility = "hidden";
     }
 
-    closePreview.onclick = closeImagePreview;
-    preview.onclick = closeImagePreview;
-
+    closePreview.onclick = closeImage;
+    preview.onclick = closeImage;
 });

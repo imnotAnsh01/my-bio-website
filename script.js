@@ -1,113 +1,90 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    /* ---------------- ELEMENTS ---------------- */
-    const menu = document.getElementById("menu");
-    const menuBtn = document.getElementById("menuBtn");
-    const closeBtn = document.getElementById("closeBtn");
+const menu=document.getElementById("menu");
+const menuBtn=document.getElementById("menuBtn");
+const closeBtn=document.getElementById("closeBtn");
+const overlay=document.getElementById("overlay");
 
-    const projectPanel = document.getElementById("projectPanel");
-    const openProject = document.getElementById("openProject");
-    const closeProject = document.getElementById("closeProject");
+const openProject=document.getElementById("openProject");
+const projectPanel=document.getElementById("projectPanel");
+const closeProject=document.getElementById("closeProject");
 
-    const overlay = document.getElementById("overlay");
-    const themeBtn = document.getElementById("themeToggle");
+const themeBtn=document.getElementById("themeToggle");
 
-    /* ---------------- MENU ---------------- */
-    menuBtn.onclick = () => {
-        menu.style.right = "0";
-        showOverlay();
-    };
+/* THEME PERSIST */
+if(localStorage.getItem("theme")==="light"){
+document.body.classList.add("light");
+themeBtn.textContent="🌞";
+}
 
-    closeBtn.onclick = closeAll;
+themeBtn.onclick=()=>{
+document.body.classList.toggle("light");
+const mode=document.body.classList.contains("light")?"light":"dark";
+localStorage.setItem("theme",mode);
+themeBtn.textContent=mode==="light"?"🌞":"🌙";
+};
 
-    /* ---------------- PROJECT PANEL ---------------- */
-    openProject.onclick = () => {
-        projectPanel.style.right = "0";
-        showOverlay();
-    };
+/* MENU */
+menuBtn.onclick=()=>openLayer(menu);
+closeBtn.onclick=closeAll;
 
-    closeProject.onclick = closeAll;
+/* PROJECT PANEL */
+openProject.onclick=()=>openLayer(projectPanel);
+closeProject.onclick=closeAll;
+overlay.onclick=closeAll;
 
-    /* ---------------- OVERLAY ---------------- */
-    overlay.onclick = closeAll;
+function openLayer(el){
+el.style.right="0";
+overlay.style.opacity="1";
+overlay.style.visibility="visible";
+document.body.style.overflow="hidden";
+}
 
-    function closeAll() {
-        menu.style.right = "-260px";
-        projectPanel.style.right = "-340px";
-        hideOverlay();
-    }
+function closeAll(){
+menu.style.right="-260px";
+projectPanel.style.right="-100%";
+overlay.style.opacity="0";
+overlay.style.visibility="hidden";
+document.body.style.overflow="";
+}
 
-    function showOverlay() {
-        overlay.style.opacity = "1";
-        overlay.style.visibility = "visible";
-    }
+/* IMAGE PREVIEW + TAP ZOOM */
+const preview=document.getElementById("imgPreview");
+const previewImg=document.getElementById("previewImg");
+const panelImage=document.getElementById("panelImage");
+const closePreview=document.getElementById("closePreview");
 
-    function hideOverlay() {
-        overlay.style.opacity = "0";
-        overlay.style.visibility = "hidden";
-    }
+panelImage.onclick=()=>{
+previewImg.src=panelImage.src;
+preview.style.opacity="1";
+preview.style.visibility="visible";
+};
 
-    /* ---------------- THEME (SAVE + LOAD) ---------------- */
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-        document.body.classList.add("light");
-        themeBtn.textContent = "🌞";
-    }
+let zoom=false;
+previewImg.onclick=()=>{
+zoom=!zoom;
+previewImg.classList.toggle("zoomed");
+};
 
-    themeBtn.onclick = () => {
-        document.body.classList.toggle("light");
+closePreview.onclick=closeImage;
+preview.onclick=closeImage;
 
-        if (document.body.classList.contains("light")) {
-            localStorage.setItem("theme", "light");
-            themeBtn.textContent = "🌞";
-        } else {
-            localStorage.setItem("theme", "dark");
-            themeBtn.textContent = "🌙";
-        }
-    };
+function closeImage(){
+preview.style.opacity="0";
+preview.style.visibility="hidden";
+previewImg.classList.remove("zoomed");
+zoom=false;
+}
 
-    /* ---------------- TYPING EFFECT ---------------- */
-    const text = "Avanish Pal";
-    let i = 0;
-    const typing = document.getElementById("typing");
+/* TYPING */
+const text="Avanish Pal";
+let i=0;
+const typing=document.getElementById("typing");
+(function type(){
+if(i<text.length){
+typing.textContent+=text[i++];
+setTimeout(type,120);
+}
+})();
 
-    function typeEffect() {
-        if (i < text.length) {
-            typing.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeEffect, 120);
-        }
-    }
-    typeEffect();
-
-    /* ---------------- IMAGE FULLSCREEN + ZOOM ---------------- */
-    const preview = document.getElementById("imgPreview");
-    const previewImg = document.getElementById("previewImg");
-    const closePreview = document.getElementById("closePreview");
-    const panelImage = document.getElementById("panelImage");
-
-    let scale = 1;
-
-    panelImage.onclick = () => {
-        previewImg.src = panelImage.src;
-        preview.style.opacity = "1";
-        preview.style.visibility = "visible";
-        scale = 1;
-        previewImg.style.transform = "scale(1)";
-    };
-
-    preview.addEventListener("wheel", (e) => {
-        e.preventDefault();
-        scale += e.deltaY * -0.001;
-        scale = Math.min(Math.max(1, scale), 3);
-        previewImg.style.transform = `scale(${scale})`;
-    });
-
-    function closeImage() {
-        preview.style.opacity = "0";
-        preview.style.visibility = "hidden";
-    }
-
-    closePreview.onclick = closeImage;
-    preview.onclick = closeImage;
 });

@@ -238,3 +238,18 @@ body.light .project-panel{background:#fff;color:#111;}
     color:white;
     cursor:pointer;
                     }
+
+/* ===== LIGHT THEME SIDE MENU FIX ===== */
+body.light .side-menu{
+    background:#ffffff;
+    color:#111;
+}
+
+body.light .side-menu h3,
+body.light .side-menu p{
+    color:#111;
+}
+
+body.light .close-btn{
+    color:#111;
+}
